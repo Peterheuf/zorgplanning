@@ -19,7 +19,9 @@ harde_wens = st.sidebar.text_area("Harde wens (bv. nooit nachtdiensten)")
 zachte_wens = st.sidebar.text_area("Zachte wens (bv. liever avonddiensten)")
 voorkeursdiensten = st.sidebar.multiselect("Voorkeursdiensten", ["Ochtend", "Middag", "Avond", "Nacht"])
 gemaakte_afspraken = st.sidebar.text_area("Gemaakte afspraken (bv. woensdag alleen ochtend)")
-verantwoordelijke_dienst = st.sidebar.checkbox("Bekwaam als verantwoordelijke dienst")
+
+# Zorg ervoor dat 'verantwoordelijk_dienst' altijd een waarde heeft
+verantwoordelijk_dienst = st.sidebar.checkbox("Bekwaam als verantwoordelijke dienst", value=False)
 
 if st.sidebar.button("Medewerker toevoegen"):
     nieuwe_medewerker = pd.DataFrame([[
@@ -36,4 +38,3 @@ st.sidebar.dataframe(st.session_state.medewerkers)
 # Toon de medewerkers en hun gegevens
 st.header("Overzicht medewerkers")
 st.dataframe(st.session_state.medewerkers)
-
